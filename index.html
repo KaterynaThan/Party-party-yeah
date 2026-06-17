@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kateryna's Bachelorette Party!</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
 
         * {
             box-sizing: border-box;
@@ -26,14 +26,14 @@
         }
 
         .container {
-            background-color: rgba(255, 255, 255, 0.95);
+            background-color: rgba(255, 255, 255, 0.98);
             border-radius: 20px;
-            padding: 40px 30px;
+            padding: 40px 25px;
             box-shadow: 0 15px 35px rgba(221, 160, 221, 0.3);
             text-align: center;
-            max-width: 500px;
+            max-width: 550px;
             width: 100%;
-            border: 2px solid #ffd700; /* Gold accent */
+            border: 2px solid #ffd700;
             position: relative;
             transition: all 0.5s ease;
         }
@@ -50,7 +50,7 @@
             font-family: 'Playfair Display', serif;
             font-style: italic;
             font-size: 1.3rem;
-            color: #b08d57; /* Soft gold/bronze */
+            color: #b08d57;
             margin-bottom: 30px;
         }
 
@@ -88,10 +88,6 @@
             transform: translateX(-50%);
         }
 
-        #yesBtn:hover {
-            transform: translateX(-50%) scale(1.05);
-        }
-
         #noBtn {
             background-color: #f0f0f0;
             color: #777;
@@ -102,10 +98,10 @@
             z-index: 1000;
         }
 
-        /* Success Screen Details */
+        /* Настройки разделов */
         .details-card {
             display: none;
-            margin-top: 20px;
+            text-align: left;
             animation: fadeIn 1s ease forwards;
         }
 
@@ -114,50 +110,116 @@
             font-size: 2.2rem;
             color: #ff1493;
             margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: #d81b60;
+            margin: 25px 0 10px 0;
+            border-bottom: 1px solid #ffe4e1;
+            padding-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .info-block {
             background: #fff9fa;
             border-left: 4px solid #ffd700;
-            padding: 15px;
-            margin: 15px 0;
-            text-align: left;
+            padding: 12px;
+            margin: 10px 0;
             border-radius: 0 10px 10px 0;
         }
 
-        .info-label {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #b08d57;
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-
         .info-value {
-            font-size: 1.05rem;
+            font-size: 1rem;
             color: #333;
             font-weight: 500;
-        }
-
-        .dress-code-box {
-            background: linear-gradient(to right, #fff0f5, #ffe4e1);
-            border: 1px dashed #ff69b4;
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 25px;
+            line-height: 1.5;
         }
 
         .color-circle {
             display: inline-block;
-            width: 25px;
-            height: 25px;
+            width: 20px;
+            height: 20px;
             background-color: #ffb6c1;
             border-radius: 50%;
             vertical-align: middle;
             margin-left: 8px;
             border: 1px solid #fff;
             box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+
+        /* Стили анкеты */
+        .survey-form {
+            margin-top: 20px;
+            background: #fff9fa;
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px dashed #ff69b4;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #4a4a4a;
+        }
+
+        .form-group input[type="text"] {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .radio-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            cursor: pointer;
+            font-weight: 400 !important;
+        }
+
+        .radio-label input {
+            accent-color: #ff1493;
+            width: 18px;
+            height: 18px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(45deg, #ffd700, #b08d57);
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+            box-shadow: 0 4px 10px rgba(176, 141, 87, 0.3);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .submit-btn:hover {
+            opacity: 0.9;
         }
 
         @keyframes fadeIn {
@@ -183,20 +245,65 @@
         <div id="detailsScreen" class="details-card">
             <h1 class="success-title">Hooray! Waiting for you!</h1>
             
+            <div class="section-title">✨ When & Where</div>
             <div class="info-block">
-                <div class="info-label">✨ Time & Date</div>
-                <div class="info-value">Gathering at 10:00 AM</div>
+                <div class="info-value">
+                    <strong>Time:</strong> Gathering at 10:00 AM<br>
+                    <strong>Address:</strong> Keinulaudantie 2a B 60, Kontula, Helsinki
+                </div>
             </div>
 
+            <div class="section-title">🥂 What's Planned</div>
             <div class="info-block">
-                <div class="info-label">📍 Location</div>
-                <div class="info-value">Keinulaudantie 2a B 60,<br>Kontula, Helsinki</div>
+                <div class="info-value">
+                    A wonderful day full of surprises, laughter, delicious drinks, and unforgettable moments with our beautiful bride! More secrets revealed on site.
+                </div>
             </div>
 
-            <div class="dress-code-box">
-                <div class="info-label" style="color: #d81b60;">👗 Dress Code</div>
-                <div class="info-value" style="font-weight: 600;">Pink Color for Bridesmaids <span class="color-circle"></span></div>
+            <div class="section-title">👗 Dress Code</div>
+            <div class="info-block" style="border-left-color: #ff69b4;">
+                <div class="info-value">
+                    Please wear a **Pink** outfit to match our gorgeous bridesmaids' palette! <span class="color-circle"></span>
+                </div>
             </div>
+
+            <div class="section-title">📝 Guest Questionnaire</div>
+            <p style="font-size: 0.85rem; margin-bottom: 15px; color: #666;">Please fill out this form to help plan the perfect party:</p>
+
+            <form class="survey-form" action="https://formspree.io/f/XXXXXX" method="POST">
+                
+                <div class="form-group">
+                    <label>Your Name:</label>
+                    <input type="text" name="Guest Name" placeholder="Enter your name" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Food Preferences:</label>
+                    <div class="radio-group">
+                        <label class="radio-label"><input type="radio" name="Food" value="Standard" checked> Standard Menu</label>
+                        <label class="radio-label"><input type="radio" name="Food" value="Halal"> Halal Food Only</label>
+                        <label class="radio-label"><input type="radio" name="Food" value="Vegetarian"> Vegetarian</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Alcohol Preferences:</label>
+                    <div class="radio-group">
+                        <label class="radio-label"><input type="radio" name="Alcohol" value="Yes" checked> Yes, I prefer alcohol drinks</label>
+                        <label class="radio-label"><input type="radio" name="Alcohol" value="No"> No, I prefer non-alcoholic drinks</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>What activities do you prefer?</label>
+                    <div class="radio-group">
+                        <label class="radio-label"><input type="radio" name="Activity" value="Active" checked> Active & Energetic (games, dancing, quests)</label>
+                        <label class="radio-label"><input type="radio" name="Activity" value="Chill"> Relaxed & Chill (spa vibes, talk, cozy atmosphere)</label>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">Send My Answers ✨</button>
+            </form>
         </div>
     </div>
 
@@ -206,21 +313,17 @@
         const inviteScreen = document.getElementById('inviteScreen');
         const detailsScreen = document.getElementById('detailsScreen');
 
-        // Function to move the "No" button randomly
         function moveNoButton() {
             const container = document.getElementById('mainContainer');
             const containerRect = container.getBoundingClientRect();
             const btnRect = noBtn.getBoundingClientRect();
 
-            // Calculate max available positions within the container padding
             const maxLeft = containerRect.width - btnRect.width - 40;
             const maxTop = containerRect.height - btnRect.height - 40;
 
-            // Generate random coordinates
             const randomLeft = Math.max(20, Math.floor(Math.random() * maxLeft));
             const randomTop = Math.max(20, Math.floor(Math.random() * maxTop));
 
-            // Switch to fixed/absolute position relative to the container
             noBtn.style.position = 'absolute';
             noBtn.style.left = randomLeft + 'px';
             noBtn.style.top = randomTop + 'px';
@@ -228,16 +331,12 @@
             noBtn.style.transform = 'none';
         }
 
-        // Move button on hover/mouseover (for computers)
         noBtn.addEventListener('mouseover', moveNoButton);
-
-        // Move button on touch (for phones)
         noBtn.addEventListener('touchstart', function(e) {
-            e.preventDefault(); // Prevents accidental clicking on mobile
+            e.preventDefault();
             moveNoButton();
         });
 
-        // Show details when "Yes" is clicked
         yesBtn.addEventListener('click', () => {
             inviteScreen.style.display = 'none';
             detailsScreen.style.display = 'block';
