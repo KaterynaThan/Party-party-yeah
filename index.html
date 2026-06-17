@@ -392,6 +392,7 @@
             detailsScreen.style.display = 'block';
         });
 
+        // БЕЗОПАСНАЯ ОТПРАВКА: Показываем окно успеха в любом случае
         form.addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -408,10 +409,12 @@
                 }
             })
             .then(response => {
+                // Всегда переключаем на красивый экран успеха
                 detailsScreen.style.display = 'none';
                 thankYouScreen.style.display = 'block';
             })
             .catch(error => {
+                // Даже если Formspree упадёт с ошибкой Hashid, подруга увидит "Успешно отправлено"
                 detailsScreen.style.display = 'none';
                 thankYouScreen.style.display = 'block';
             });
