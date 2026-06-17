@@ -272,13 +272,13 @@
         </div>
 
         <div id="detailsScreen" class="details-card">
-            <h1 class="success-title">Yay! The crew is ready, can't wait to see you!</h1>
+            <h1 class="success-title">Yay! Wait for you!</h1>
             
             <div class="section-title">✨ When & Where We Meet</div>
             <div class="info-block">
                 <div class="info-value">
-                    We are gathering at 10:00 AM.<br>
-                    Can't wait to see you at: Keinulaudantie 2a B 60, Kontula, Helsinki. Get ready for a wonderful day full of surprises, laughter, and amazing drinks! The rest of the secrets will be revealed on site.
+                    <strong>Time:</strong> Gathering at 10:00 AM<br>
+                    <strong>Address:</strong> Keinulaudantie 2a B 60, Kontula, Helsinki
                 </div>
             </div>
 
@@ -392,7 +392,6 @@
             detailsScreen.style.display = 'block';
         });
 
-        // БЕЗОПАСНАЯ ОТПРАВКА: Показываем окно успеха в любом случае
         form.addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -409,12 +408,10 @@
                 }
             })
             .then(response => {
-                // Всегда переключаем на красивый экран успеха
                 detailsScreen.style.display = 'none';
                 thankYouScreen.style.display = 'block';
             })
             .catch(error => {
-                // Даже если Formspree упадёт с ошибкой Hashid, подруга увидит "Успешно отправлено"
                 detailsScreen.style.display = 'none';
                 thankYouScreen.style.display = 'block';
             });
