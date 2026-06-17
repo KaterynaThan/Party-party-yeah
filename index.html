@@ -40,7 +40,7 @@
 
         h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
+            font-size: 2.3rem;
             color: #d81b60;
             margin-bottom: 10px;
             font-weight: 600;
@@ -88,6 +88,10 @@
             transform: translateX(-50%);
         }
 
+        #yesBtn:hover {
+            transform: translateX(-50%) scale(1.05);
+        }
+
         #noBtn {
             background-color: #f0f0f0;
             color: #777;
@@ -98,7 +102,6 @@
             z-index: 1000;
         }
 
-        /* Настройки разделов */
         .details-card {
             display: none;
             text-align: left;
@@ -128,7 +131,7 @@
         .info-block {
             background: #fff9fa;
             border-left: 4px solid #ffd700;
-            padding: 12px;
+            padding: 15px;
             margin: 10px 0;
             border-radius: 0 10px 10px 0;
         }
@@ -137,7 +140,7 @@
             font-size: 1rem;
             color: #333;
             font-weight: 500;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
         .color-circle {
@@ -152,7 +155,6 @@
             box-shadow: 0 0 5px rgba(0,0,0,0.1);
         }
 
-        /* Стили анкеты */
         .survey-form {
             margin-top: 20px;
             background: #fff9fa;
@@ -173,13 +175,19 @@
             color: #4a4a4a;
         }
 
-        .form-group input[type="text"] {
+        .form-group input[type="text"], .form-group textarea {
             width: 100%;
-            padding: 10px 15px;
+            padding: 11px 15px;
             border: 1px solid #ddd;
             border-radius: 8px;
             font-family: 'Montserrat', sans-serif;
             font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input[type="text"]:focus, .form-group textarea:focus {
+            border-color: #ff69b4;
         }
 
         .radio-group {
@@ -205,17 +213,18 @@
 
         .submit-btn {
             width: 100%;
-            background: linear-gradient(45deg, #ffd700, #b08d57);
+            background: linear-gradient(45deg, #ff69b4, #ff1493);
             color: white;
-            padding: 12px;
+            padding: 14px;
             border: none;
             border-radius: 25px;
             font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
             margin-top: 10px;
-            box-shadow: 0 4px 10px rgba(176, 141, 87, 0.3);
+            box-shadow: 0 4px 12px rgba(255, 20, 147, 0.3);
             font-family: 'Montserrat', sans-serif;
+            transition: opacity 0.2s;
         }
 
         .submit-btn:hover {
@@ -232,9 +241,9 @@
 
     <div class="container" id="mainContainer">
         <div id="inviteScreen">
-            <h1>Bachelorette Party</h1>
-            <div class="subtitle">of beautiful Kateryna</div>
-            <p class="question">Are you coming to celebrate with me?</p>
+            <h1>My Bachelorette Party!</h1>
+            <div class="subtitle">Kateryna's Bachelorette Party</div>
+            <p class="question">We are celebrating very soon! Are you coming?</p>
             
             <div class="btn-group">
                 <button class="btn" id="yesBtn">YES!</button>
@@ -243,105 +252,43 @@
         </div>
 
         <div id="detailsScreen" class="details-card">
-            <h1 class="success-title">Hooray! Waiting for you!</h1>
+            <h1 class="success-title">Yay! The crew is ready, can't wait to see you!</h1>
             
-            <div class="section-title">✨ When & Where</div>
+            <div class="section-title">✨ When & Where We Meet</div>
             <div class="info-block">
                 <div class="info-value">
-                    <strong>Time:</strong> Gathering at 10:00 AM<br>
-                    <strong>Address:</strong> Keinulaudantie 2a B 60, Kontula, Helsinki
+                    We are gathering at 10:00 AM.<br>
+                    Can't wait to see you at: Keinulaudantie 2a B 60, Kontula, Helsinki. Get ready for a wonderful day full of surprises, laughter, and amazing drinks! The rest of the secrets will be revealed on site.
                 </div>
             </div>
 
-            <div class="section-title">🥂 What's Planned</div>
-            <div class="info-block">
-                <div class="info-value">
-                    A wonderful day full of surprises, laughter, delicious drinks, and unforgettable moments with our beautiful bride! More secrets revealed on site.
-                </div>
-            </div>
-
-            <div class="section-title">👗 Dress Code</div>
+            <div class="section-title">👗 What to Wear (Dress Code)</div>
             <div class="info-block" style="border-left-color: #ff69b4;">
                 <div class="info-value">
-                    Please wear a **Pink** outfit to match our gorgeous bridesmaids' palette! <span class="color-circle"></span>
+                    Please wear a pink outfit so we look super cute together in photos! <span class="color-circle"></span>
                 </div>
             </div>
 
-            <div class="section-title">📝 Guest Questionnaire</div>
-            <p style="font-size: 0.85rem; margin-bottom: 15px; color: #666;">Please fill out this form to help plan the perfect party:</p>
+            <div class="section-title">📝 Quick Questionnaire</div>
+            <p style="font-size: 0.85rem; margin-bottom: 15px; color: #666;">Please answer a few questions to help me plan everything perfectly for us:</p>
 
-            <form class="survey-form" action="https://formspree.io/f/XXXXXX" method="POST">
+            <form class="survey-form" action="https://formspree.io/f/xqeoodow" method="POST">
                 
                 <div class="form-group">
-                    <label>Your Name:</label>
-                    <input type="text" name="Guest Name" placeholder="Enter your name" required>
+                    <label>1. What is your name?</label>
+                    <input type="text" name="Guest Name" placeholder="Your name" required>
                 </div>
 
                 <div class="form-group">
-                    <label>Food Preferences:</label>
+                    <label>2. What would you like to drink?</label>
                     <div class="radio-group">
-                        <label class="radio-label"><input type="radio" name="Food" value="Standard" checked> Standard Menu</label>
-                        <label class="radio-label"><input type="radio" name="Food" value="Halal"> Halal Food Only</label>
-                        <label class="radio-label"><input type="radio" name="Food" value="Vegetarian"> Vegetarian</label>
+                        <label class="radio-label"><input type="radio" name="Alcohol" value="Drinks Alcohol" checked> I'd love to have some wine or cocktails</label>
+                        <label class="radio-label"><input type="radio" name="Alcohol" value="Only Champagne"> Only sparkling wine or champagne!</label>
+                        <label class="radio-label"><input type="radio" name="Alcohol" value="No Alcohol"> I don't drink alcohol (juice, lemonade, or mocktails for me)</label>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label>Alcohol Preferences:</label>
+                    <label>3. Food preferences or restrictions:</label>
                     <div class="radio-group">
-                        <label class="radio-label"><input type="radio" name="Alcohol" value="Yes" checked> Yes, I prefer alcohol drinks</label>
-                        <label class="radio-label"><input type="radio" name="Alcohol" value="No"> No, I prefer non-alcoholic drinks</label>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label>What activities do you prefer?</label>
-                    <div class="radio-group">
-                        <label class="radio-label"><input type="radio" name="Activity" value="Active" checked> Active & Energetic (games, dancing, quests)</label>
-                        <label class="radio-label"><input type="radio" name="Activity" value="Chill"> Relaxed & Chill (spa vibes, talk, cozy atmosphere)</label>
-                    </div>
-                </div>
-
-                <button type="submit" class="submit-btn">Send My Answers ✨</button>
-            </form>
-        </div>
-    </div>
-
-    <script>
-        const noBtn = document.getElementById('noBtn');
-        const yesBtn = document.getElementById('yesBtn');
-        const inviteScreen = document.getElementById('inviteScreen');
-        const detailsScreen = document.getElementById('detailsScreen');
-
-        function moveNoButton() {
-            const container = document.getElementById('mainContainer');
-            const containerRect = container.getBoundingClientRect();
-            const btnRect = noBtn.getBoundingClientRect();
-
-            const maxLeft = containerRect.width - btnRect.width - 40;
-            const maxTop = containerRect.height - btnRect.height - 40;
-
-            const randomLeft = Math.max(20, Math.floor(Math.random() * maxLeft));
-            const randomTop = Math.max(20, Math.floor(Math.random() * maxTop));
-
-            noBtn.style.position = 'absolute';
-            noBtn.style.left = randomLeft + 'px';
-            noBtn.style.top = randomTop + 'px';
-            noBtn.style.right = 'auto';
-            noBtn.style.transform = 'none';
-        }
-
-        noBtn.addEventListener('mouseover', moveNoButton);
-        noBtn.addEventListener('touchstart', function(e) {
-            e.preventDefault();
-            moveNoButton();
-        });
-
-        yesBtn.addEventListener('click', () => {
-            inviteScreen.style.display = 'none';
-            detailsScreen.style.display = 'block';
-        });
-    </script>
-
-</body>
-</html>
+                        <label class="radio-label"><input type="radio" name="Food" value="Eat Everything
