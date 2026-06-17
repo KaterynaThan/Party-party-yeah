@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kateryna's Bachelorette Party!</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #fff0f5 0%, #ffe4e1 100%);
+            color: #4a4a4a;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 15px 35px rgba(221, 160, 221, 0.3);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+            border: 2px solid #ffd700; /* Gold accent */
+            position: relative;
+            transition: all 0.5s ease;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #d81b60;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.3rem;
+            color: #b08d57; /* Soft gold/bronze */
+            margin-bottom: 30px;
+        }
+
+        .question {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .btn-group {
+            position: relative;
+            height: 60px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 12px 35px;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.3s;
+            font-family: 'Montserrat', sans-serif;
+            outline: none;
+        }
+
+        #yesBtn {
+            background: linear-gradient(45deg, #ff69b4, #ff1493);
+            color: white;
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+            position: absolute;
+            left: 20%;
+            transform: translateX(-50%);
+        }
+
+        #yesBtn:hover {
+            transform: translateX(-50%) scale(1.05);
+        }
+
+        #noBtn {
+            background-color: #f0f0f0;
+            color: #777;
+            border: 1px solid #ddd;
+            position: absolute;
+            right: 20%;
+            transform: translateX(50%);
+            z-index: 1000;
+        }
+
+        /* Success Screen Details */
+        .details-card {
+            display: none;
+            margin-top: 20px;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .success-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: #ff1493;
+            margin-bottom: 25px;
+        }
+
+        .info-block {
+            background: #fff9fa;
+            border-left: 4px solid #ffd700;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: left;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .info-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #b08d57;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .info-value {
+            font-size: 1.05rem;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .dress-code-box {
+            background: linear-gradient(to right, #fff0f5, #ffe4e1);
+            border: 1px dashed #ff69b4;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 25px;
+        }
+
+        .color-circle {
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            background-color: #ffb6c1;
+            border-radius: 50%;
+            vertical-align: middle;
+            margin-left: 8px;
+            border: 1px solid #fff;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="mainContainer">
+        <div id="inviteScreen">
+            <h1>Bachelorette Party</h1>
+            <div class="subtitle">of beautiful Kateryna</div>
+            <p class="question">Are you coming to celebrate with me?</p>
+            
+            <div class="btn-group">
+                <button class="btn" id="yesBtn">YES!</button>
+                <button class="btn" id="noBtn">NO</button>
+            </div>
+        </div>
+
+        <div id="detailsScreen" class="details-card">
+            <h1 class="success-title">Hooray! Waiting for you!</h1>
+            
+            <div class="info-block">
+                <div class="info-label">✨ Time & Date</div>
+                <div class="info-value">Gathering at 10:00 AM</div>
+            </div>
+
+            <div class="info-block">
+                <div class="info-label">📍 Location</div>
+                <div class="info-value">Keinulaudantie 2a B 60,<br>Kontula, Helsinki</div>
+            </div>
+
+            <div class="dress-code-box">
+                <div class="info-label" style="color: #d81b60;">👗 Dress Code</div>
+                <div class="info-value" style="font-weight: 600;">Pink Color for Bridesmaids <span class="color-circle"></span></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const noBtn = document.getElementById('noBtn');
+        const yesBtn = document.getElementById('yesBtn');
+        const inviteScreen = document.getElementById('inviteScreen');
+        const detailsScreen = document.getElementById('detailsScreen');
+
+        // Function to move the "No" button randomly
+        function moveNoButton() {
+            const container = document.getElementById('mainContainer');
+            const containerRect = container.getBoundingClientRect();
+            const btnRect = noBtn.getBoundingClientRect();
+
+            // Calculate max available positions within the container padding
+            const maxLeft = containerRect.width - btnRect.width - 40;
+            const maxTop = containerRect.height - btnRect.height - 40;
+
+            // Generate random coordinates
+            const randomLeft = Math.max(20, Math.floor(Math.random() * maxLeft));
+            const randomTop = Math.max(20, Math.floor(Math.random() * maxTop));
+
+            // Switch to fixed/absolute position relative to the container
+            noBtn.style.position = 'absolute';
+            noBtn.style.left = randomLeft + 'px';
+            noBtn.style.top = randomTop + 'px';
+            noBtn.style.right = 'auto';
+            noBtn.style.transform = 'none';
+        }
+
+        // Move button on hover/mouseover (for computers)
+        noBtn.addEventListener('mouseover', moveNoButton);
+
+        // Move button on touch (for phones)
+        noBtn.addEventListener('touchstart', function(e) {
+            e.preventDefault(); // Prevents accidental clicking on mobile
+            moveNoButton();
+        });
+
+        // Show details when "Yes" is clicked
+        yesBtn.addEventListener('click', () => {
+            inviteScreen.style.display = 'none';
+            detailsScreen.style.display = 'block';
+        });
+    </script>
+
+</body>
+</html>
